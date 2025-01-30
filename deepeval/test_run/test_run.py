@@ -404,7 +404,7 @@ class TestRunManager:
         self, test_run: TestRun, display: TestRunResultDisplay
     ):
         table = Table(title="Test Results")
-        table.add_column("Test case", justify="left")
+        table.add_column("Test case - input", justify="left")
         table.add_column("Metric", justify="left")
         table.add_column("Score", justify="left")
         table.add_column("Status", justify="left")
@@ -424,7 +424,7 @@ class TestRunManager:
 
             pass_count = 0
             fail_count = 0
-            test_case_name = test_case.name
+            test_case_input = test_case.input
 
             for metric_data in test_case.metrics_data:
                 if metric_data.success:
@@ -433,7 +433,7 @@ class TestRunManager:
                     fail_count += 1
 
             table.add_row(
-                test_case_name,
+                test_case_input,
                 "",
                 "",
                 "",
